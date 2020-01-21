@@ -2,7 +2,7 @@ import qs from 'qs';
 import { perPage } from '../../../utils/envVarMap';
 import distanceEnum from '../../../utils/enums/distance';
 import ratingEnum from '../../../utils/enums/rating';
-import sortEnum from '../../../utils/enums/sort';
+import sortEnum from '../../../utils/sort';
 
 export default (hotels, query) => {
   const { filter, page = 1, sort = 1 } = qs.parse(query);

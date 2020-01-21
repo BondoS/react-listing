@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Select from '../ui/select';
 import FieldContain from '../ui/fieldContain';
 import Label from '../ui/label';
-import sortEnum from '../../utils/enums/sort';
+import sortEnum from '../../utils/sort';
 
 const Sort = ({ change, currentSort }) => {
   const { t } = useTranslation();
