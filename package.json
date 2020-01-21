@@ -27,11 +27,12 @@
     "react-useportal": "^1.0.13",
     "styled-components": "^4.4.1",
     "unfetch": "^4.1.0",
-    "uuid": "^3.3.3"
+    "uuid": "^3.3.3",
+    "json-server": "^0.15.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "production": "json-server --static ./build db.json",
+    "production": "json-server --static ./build/db db.json",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
