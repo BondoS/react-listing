@@ -19,6 +19,8 @@ i18n
     fallbackLng: 'en',
     ns: ['common'],
     defaultNS: 'common',
+    load: 'all',
+    whitelist: ['de', 'en'],
     // debug: true,
 
     interpolation: {
