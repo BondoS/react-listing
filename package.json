@@ -31,10 +31,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "production": "json-server --static ./build db.json",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "dev-server": "json-server -p 8080 db.json"
   },
   "eslintConfig": {
     "extends": "react-app"
