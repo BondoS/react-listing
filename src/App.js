@@ -20,7 +20,11 @@ function App() {
           <Route path="/admin/" component={Admin} />
           <Route path="/confirm/" component={Confirm} />
           <Route
-            render={() => <h2 className="notFound">404 Page Not Found</h2>}
+            render={() => (
+              <h2 style={{ textAlign: 'center' }} className="notFound">
+                404 Page Not Found
+              </h2>
+            )}
           />
         </Switch>
       </div>
