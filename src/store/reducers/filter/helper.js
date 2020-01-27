@@ -7,6 +7,8 @@ import sortEnum from '../../../utils/sort';
 export default (hotels, query) => {
   const { filter, page = 1, sort = 1 } = qs.parse(query);
   console.log(
+    'hotels',
+    hotels,
     'qs.parse(query)',
     qs.parse(query),
     'filter',
