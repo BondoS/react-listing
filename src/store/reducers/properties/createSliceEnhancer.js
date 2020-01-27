@@ -5,7 +5,7 @@ const initialState = {
   ids: [],
   list: {},
   isLoading: false,
-  lastFetch: null
+  fetchedAt: null
 };
 
 const startLoading = state => {

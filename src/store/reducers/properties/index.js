@@ -61,39 +61,29 @@ export const setPropertyById = (type, action, payload) => async dispatch => {
   await dispatch(actions[type].setDateStart());
   await dispatch(showLoading());
   await delay(700);
-  if (process.env.NODE_ENV !== 'development') {
-    dispatch(actions[type].setDateSuccess(payload));
-    dispatch(hideLoading());
-  } else {
-    await setProperty(type, action, payload.id, stringToNumber(payload)).then(
-      () => {
-        dispatch(actions[type].setDateSuccess(payload));
-        dispatch(hideLoading());
-      },
-      error => {
-        dispatch(actions[type].setDateFail(error));
-        dispatch(hideLoading());
-      }
-    );
-  }
+  await setProperty(type, action, payload.id, stringToNumber(payload)).then(
+    () => {
+      dispatch(actions[type].setDateSuccess(payload));
+      dispatch(hideLoading());
+    },
+    error => {
+      dispatch(actions[type].setDateFail(error));
+      dispatch(hideLoading());
+    }
+  );
 };
 
 export const deletePropertyById = (type, id) => async dispatch => {
   await dispatch(showLoading());
   await delay(300);
-  if (process.env.NODE_ENV !== 'development') {
-    dispatch(actions[type].deleteDataSuccess(id));
-    dispatch(hideLoading());
-  } else {
-    await deleteProperty(type, id).then(
-      () => {
-        dispatch(actions[type].deleteDataSuccess(id));
-        dispatch(hideLoading());
-      },
-      error => {
-        dispatch(actions[type].deleteDataFail(error));
-        dispatch(hideLoading());
-      }
-    );
-  }
+  await deleteProperty(type, id).then(
+    () => {
+      dispatch(actions[type].deleteDataSuccess(id));
+      dispatch(hideLoading());
+    },
+    error => {
+      dispatch(actions[type].deleteDataFail(error));
+      dispatch(hideLoading());
+    }
+  );
 };

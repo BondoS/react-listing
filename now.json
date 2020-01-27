@@ -1,0 +1,9 @@
+{
+  "build": {
+    "env": {
+      "REACT_APP_API": "@api",
+      "REACT_APP_CACHE": "@cache",
+      "REACT_APP_HOTELS_PER_PAGE": "@hotels-per-page"
+    }
+  }
+}

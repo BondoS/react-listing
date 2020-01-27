@@ -31,12 +31,6 @@ const HomePg = () => {
       .filter(roomId => rooms.list[roomId].hotelId === id)
       .map(roomId => rooms.list[roomId])
   }));
-  console.log(
-    'filter result from home page',
-    result,
-    'currentHotels',
-    currentHotels
-  );
   const handleFilter = filters => {
     history.replace(
       `/?${qs.stringify({ filter: filters })}&page=${1}&sort=${sort}`
