@@ -4,6 +4,7 @@ import rooms from './rooms';
 import hotels from './hotels';
 
 export const getAllProperties = type => {
+  console.log('process.env.NODE_ENV ', process.env.NODE_ENV);
   if (process.env.NODE_ENV === 'development') {
     if (type === 'hotels') {
       return Promise.resolve(hotels);
