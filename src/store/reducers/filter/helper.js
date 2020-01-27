@@ -54,5 +54,11 @@ export default (hotels, query) => {
   const pageCount = Math.ceil(sortedHotels.length / perPage);
   const endIndex = page * perPage;
   const startIndex = endIndex - perPage;
+  console.log(
+    'filter result',
+    sortedHotels.slice(startIndex, endIndex),
+    'page count',
+    pageCount
+  );
   return { hotels: sortedHotels.slice(startIndex, endIndex), pageCount };
 };
