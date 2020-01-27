@@ -4,18 +4,18 @@ import rooms from './rooms';
 import hotels from './hotels';
 
 export const getAllProperties = type => {
-  if (process.env.NODE_ENV !== 'development') {
-    return call(`${apiUrl}/${type}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
+  if (process.env.NODE_ENV === 'development') {
+    if (type === 'hotels') {
+      return Promise.resolve(hotels);
+    }
+    return Promise.resolve(rooms);
   }
-  if (type === 'hotels') {
-    return Promise.resolve(hotels);
-  }
-  return Promise.resolve(rooms);
+  return call(`${apiUrl}/${type}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
 };
 
 export const getPropertyById = (type, id) => {
