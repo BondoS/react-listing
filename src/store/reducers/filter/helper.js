@@ -40,6 +40,18 @@ export default (hotels, query) => {
   const allHotels = filter
     ? hotels.ids.filter(hotelId => {
         const hotel = hotels.list[hotelId];
+        console.log(
+          'hotel',
+          hotel,
+          'price',
+          validatePrice(hotel, filter.price),
+          'distance',
+          validateDistance(hotel, filter.distance),
+          'rate',
+          validateRating(hotel, filter.rating),
+          'amenities',
+          validateAmenities(hotel, filter.amenities || [])
+        );
         return (
           validatePrice(hotel, filter.price) &&
           validateDistance(hotel, filter.distance) &&
