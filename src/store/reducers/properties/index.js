@@ -61,7 +61,7 @@ export const setPropertyById = (type, action, payload) => async dispatch => {
   await dispatch(actions[type].setDateStart());
   await dispatch(showLoading());
   await delay(700);
-  if (!process.env.NODE_ENV) {
+  if (process.env.NODE_ENV !== 'development') {
     dispatch(actions[type].setDateSuccess(payload));
     dispatch(hideLoading());
   } else {
@@ -81,7 +81,7 @@ export const setPropertyById = (type, action, payload) => async dispatch => {
 export const deletePropertyById = (type, id) => async dispatch => {
   await dispatch(showLoading());
   await delay(300);
-  if (!process.env.NODE_ENV) {
+  if (process.env.NODE_ENV !== 'development') {
     dispatch(actions[type].deleteDataSuccess(id));
     dispatch(hideLoading());
   } else {
