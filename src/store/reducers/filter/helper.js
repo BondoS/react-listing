@@ -6,7 +6,16 @@ import sortEnum from '../../../utils/sort';
 
 export default (hotels, query) => {
   const { filter, page = 1, sort = 1 } = qs.parse(query);
-
+  console.log(
+    'qs.parse(query)',
+    qs.parse(query),
+    'filter',
+    filter,
+    'page',
+    page,
+    'sort',
+    sort
+  );
   const validatePrice = (hotel, filterPrice) => {
     return +filterPrice ? +hotel.price_category === +filterPrice : true;
   };
