@@ -1,3 +1,8 @@
+This project is a demonestration for an E-commerce platform. it is built with React-Redux, and it uses a local JSON-Server which exposes an endpoint to import the data.
+
+
+
+#### How to run the project
 - run `yarn install` to install npm_modules.
 - run `yarn dev-server` to load the server.
 - run `yarn start` to load the client.
@@ -18,8 +23,7 @@ In order the changes to take effect, you must rebuild the project.
 
 -------
 ##### Multi-language
-- Most if not all of the projects I did, were multi-language and sometimes multi-countries concurrently, So, I totally support setting the project from day one to support this feature, if it's maybe needed any time in the future.
-- That's why this the first feature I have implemented in this project, all data is translated and available with English and German - Plz excuse my beginner German, I used Google translate, I'm sure a lot of data might not be accurately translated -.
+- All data is translated and available with English and German - Plz excuse my German, I used Google translate, I'm sure a lot of data might not be accurately translated -.
 - To edit property translation, each property has an En and De titles and description.
 - To edit fields placeholders, please check public/locales folder
 
@@ -36,12 +40,12 @@ In order the changes to take effect, you must rebuild the project.
 - Sorting techniques are abstracted into separate file which is src/utils/sort.js, I can add and/or edit as many techniques as we may need in the future, first sorting technique is the default, which is "Desc" by rating.
 
 -------
-#### Admin
+#### Admin "Dashboard area"
 - Main page includes two buttons to add hotel and/or room. and two lists for current hotels/rooms in order to edit or delete them.
 - Edit pages for hotel and room.
 
 -------
-#### Public
+#### Public pages
 - Home page, filter is collapsed by default if the client device innerWidth less than 768px which is usually tablet or mobile. 
     - because of the screen real estate shortage, I need the user to find what he/she is looking for, which is hotels.
 - Hotel page, which represents all rooms, I'll add show more in the future, but the collapse functionality is already implemented in two other locations in the home page "filter & hotel rooms".
@@ -66,7 +70,7 @@ In order the changes to take effect, you must rebuild the project.
 
 ------
 #### TODO
-- Validation - I usually implement my own validation technique within local form component reducer -
+- Validation
 - Add more clear call to action in Home page.
 - Enhance overall UI.
-- Separate main Admin page into two pages, one for rooms and one for hotels.
+- Split main Admin page into two pages, one for rooms and one for hotels.
