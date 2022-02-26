@@ -1,21 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { listWithIds } from '../../../utils/normalize';
 
-const initialState = {
+export const initialPropertyState = {
   ids: [],
   list: {},
   isLoading: false,
-  fetchedAt: null
+  fetchedAt: null,
 };
 
-const startLoading = state => {
+const startLoading = (state) => {
   state.isLoading = true;
 };
 
-export const slice = dataType =>
+export const slice = (dataType) =>
   createSlice({
     name: dataType,
-    initialState,
+    initialState: initialPropertyState,
     reducers: {
       getDataStart: startLoading,
       getDataSuccess(state, { payload }) {
@@ -45,12 +45,12 @@ export const slice = dataType =>
       deleteDataStart: startLoading,
       deleteDataSuccess(state, { payload }) {
         delete state.list[payload];
-        state.ids = state.ids.filter(id => payload !== id);
+        state.ids = state.ids.filter((id) => payload !== id);
         state.isLoading = false;
       },
       deleteDataFail(state, { payload }) {
         console.log('error', payload);
         state.isLoading = false;
-      }
-    }
+      },
+    },
   });
