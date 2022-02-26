@@ -29,7 +29,6 @@ function App() {
         </Routes>
       </div>
     </Router>
-    // <div>shit</div>
   );
 }
 
