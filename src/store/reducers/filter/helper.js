@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import qs from 'qs';
 import { perPage } from '../../../utils/envVarMap';
 import distanceEnum from '../../../utils/enums/distance';
@@ -6,19 +7,23 @@ import sortEnum from '../../../utils/sort';
 
 export default (hotels, query) => {
   const { filter, page = 1, sort = 1 } = qs.parse(query);
-  const validatePrice = (hotel, filterPrice) => +filterPrice ? +hotel.price_category === +filterPrice : true;
+  const validatePrice = (hotel, filterPrice) =>
+    +filterPrice ? +hotel.price_category === +filterPrice : true;
 
-  const validateDistance = (hotel, filterDistance) => +filterDistance
+  const validateDistance = (hotel, filterDistance) =>
+    +filterDistance
       ? distanceEnum[filterDistance].validate(hotel.distance_to_venue)
       : true;
 
-  const validateRating = (hotel, filterPrice) => +filterPrice ? ratingEnum[filterPrice].validate(hotel.rating) : true;
+  const validateRating = (hotel, filterPrice) =>
+    +filterPrice ? ratingEnum[filterPrice].validate(hotel.rating) : true;
 
-  const validateAmenities = (hotel, filterAmenities) => filterAmenities.length > 0
-      ? filterAmenities.every(amenity => hotel.amenities.includes(+amenity))
+  const validateAmenities = (hotel, filterAmenities) =>
+    filterAmenities.length > 0
+      ? filterAmenities.every((amenity) => hotel.amenities.includes(+amenity))
       : true;
   const allHotels = filter
-    ? hotels.ids.filter(hotelId => {
+    ? hotels.ids.filter((hotelId) => {
         const hotel = hotels.list[hotelId];
         return (
           validatePrice(hotel, filter.price) &&
