@@ -7,7 +7,7 @@ import InnerHeader from './innerHeader';
 import Ul from '../ui/ul';
 import Li from '../ui/li';
 
-const Header = () => {
+function Header() {
   const { t } = useTranslation();
 
   return (
@@ -26,6 +26,6 @@ const Header = () => {
       </InnerHeader>
     </HeaderStyled>
   );
-};
+}
 
 export default Header;

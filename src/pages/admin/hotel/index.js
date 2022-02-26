@@ -1,11 +1,11 @@
 import React, { useEffect, useReducer } from 'react';
 import { useDispatch } from 'react-redux';
-import uuid from 'uuid';
-import { useHistory } from 'react-router-dom';
+import { v4 } from 'uuid';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
   getPropertyById,
-  setPropertyById
+  setPropertyById,
 } from '../../../store/reducers/properties';
 import { initialHotel } from '../../../store/reducers/properties/types';
 import Main from '../../../components/main';
@@ -14,19 +14,19 @@ import Form from './form';
 import useQuery from '../../../hooks/useQuery';
 import localReducer from './localReducer';
 
-const HotelContainer = () => {
+function HotelContainer() {
   const query = useQuery();
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const [hotel, localDispatch] = useReducer(localReducer, initialHotel);
   const id = query.get('id');
   const { t } = useTranslation();
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const action = id ? 'edit' : 'add';
     dispatch(setPropertyById('hotels', action, hotel)).then(() =>
-      history.replace('/admin')
+      navigate('/admin')
     );
   };
 
@@ -35,21 +35,19 @@ const HotelContainer = () => {
   };
 
   useEffect(() => {
-    dispatch(getPropertyById('hotels', query.get('id'))).then(currHotel => {
+    dispatch(getPropertyById('hotels', query.get('id'))).then((currHotel) => {
       if (!currHotel) {
         localDispatch({
           type: 'set',
-          payload: { value: { ...initialHotel, id: uuid.v4() } }
+          payload: { value: { ...initialHotel, id: v4() } },
         });
       } else {
         localDispatch({
           type: 'set',
-          payload: { value: { ...currHotel } }
+          payload: { value: { ...currHotel } },
         });
       }
     });
-    // YES, I need it to execute only once, on first load
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -66,6 +64,6 @@ const HotelContainer = () => {
       </Main>
     </div>
   );
-};
+}
 
 export default HotelContainer;

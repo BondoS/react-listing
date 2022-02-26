@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const btnColor = type => {
+const btnColor = (type) => {
   switch (type) {
     case 'book':
     case 'confirm':
@@ -13,7 +13,7 @@ const btnColor = type => {
   }
 };
 
-const btnPadding = type => {
+const btnPadding = (type) => {
   switch (type) {
     case 'basic':
     case 'delete':
@@ -26,7 +26,7 @@ const btnPadding = type => {
   }
 };
 
-const btnMargin = type => {
+const btnMargin = (type) => {
   switch (type) {
     case 'basic':
     case 'delete':
@@ -41,7 +41,7 @@ const btnMargin = type => {
   }
 };
 
-const btnBorder = type => {
+const btnBorder = (type) => {
   switch (type) {
     case 'delete':
     case 'basic':
@@ -56,7 +56,7 @@ const btnBorder = type => {
   }
 };
 
-const btnDisplay = type => {
+const btnDisplay = (type) => {
   switch (type) {
     case 'basic':
     case 'delete':
@@ -67,7 +67,7 @@ const btnDisplay = type => {
   }
 };
 
-const btnBackground = type => {
+const btnBackground = (type) => {
   switch (type) {
     case 'basic':
       return `#fff`;
@@ -80,7 +80,7 @@ const btnBackground = type => {
   }
 };
 
-const btnFloat = type => {
+const btnFloat = (type) => {
   switch (type) {
     case 'submit':
       return 'right';
@@ -93,17 +93,17 @@ const btnFloat = type => {
 
 const Button = styled.button`
   display: inline-block;
-  color: ${props => btnColor(props.btnStyle)}
+  color: ${(props) => btnColor(props.btnStyle)};
   font-size: 1em;
-  margin: ${props => btnMargin(props.btnStyle)};
-  padding: ${props => btnPadding(props.btnStyle)};
-  border: ${props => btnBorder(props.btnStyle)};
+  margin: ${(props) => btnMargin(props.btnStyle)};
+  padding: ${(props) => btnPadding(props.btnStyle)};
+  border: ${(props) => btnBorder(props.btnStyle)};
   border-radius: 3px;
-  display: ${props => btnDisplay(props.btnStyle)};
+  display: ${(props) => btnDisplay(props.btnStyle)};
   cursor: pointer;
-  background-color: ${props => btnBackground(props.btnStyle)};
+  background-color: ${(props) => btnBackground(props.btnStyle)};
   line-height: 1.3em;
-  float: ${props => btnFloat(props.btnStyle)}
+  float: ${(props) => btnFloat(props.btnStyle)};
 `;
 
 export default Button;

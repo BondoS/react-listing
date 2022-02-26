@@ -10,8 +10,4 @@ const amenities = {
 
 export default amenities;
 
-export const getAmenityKeyByName = amenity => {
-  return Object.keys(amenities).find(key => {
-    return key === amenity;
-  });
-};
+export const getAmenityKeyByName = amenity => Object.keys(amenities).find(key => key === amenity);

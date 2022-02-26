@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from '../ui/button';
 
-const Lang = () => {
+function Lang() {
   const { i18n } = useTranslation();
 
   const changeLanguage = lng => {
@@ -20,6 +20,6 @@ const Lang = () => {
       </Button>
     </div>
   );
-};
+}
 
 export default Lang;

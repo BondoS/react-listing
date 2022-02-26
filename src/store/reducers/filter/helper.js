@@ -6,25 +6,17 @@ import sortEnum from '../../../utils/sort';
 
 export default (hotels, query) => {
   const { filter, page = 1, sort = 1 } = qs.parse(query);
-  const validatePrice = (hotel, filterPrice) => {
-    return +filterPrice ? +hotel.price_category === +filterPrice : true;
-  };
+  const validatePrice = (hotel, filterPrice) => +filterPrice ? +hotel.price_category === +filterPrice : true;
 
-  const validateDistance = (hotel, filterDistance) => {
-    return +filterDistance
+  const validateDistance = (hotel, filterDistance) => +filterDistance
       ? distanceEnum[filterDistance].validate(hotel.distance_to_venue)
       : true;
-  };
 
-  const validateRating = (hotel, filterPrice) => {
-    return +filterPrice ? ratingEnum[filterPrice].validate(hotel.rating) : true;
-  };
+  const validateRating = (hotel, filterPrice) => +filterPrice ? ratingEnum[filterPrice].validate(hotel.rating) : true;
 
-  const validateAmenities = (hotel, filterAmenities) => {
-    return filterAmenities.length > 0
+  const validateAmenities = (hotel, filterAmenities) => filterAmenities.length > 0
       ? filterAmenities.every(amenity => hotel.amenities.includes(+amenity))
       : true;
-  };
   const allHotels = filter
     ? hotels.ids.filter(hotelId => {
         const hotel = hotels.list[hotelId];

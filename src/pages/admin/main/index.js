@@ -14,7 +14,7 @@ import {
 } from '../../../store/reducers/properties';
 import Delete from './confirmBtn';
 
-const Admin = () => {
+function Admin() {
   const { hotels, rooms } = useSelector(state => state);
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
@@ -102,6 +102,6 @@ const Admin = () => {
       </Main>
     </div>
   );
-};
+}
 
 export default Admin;

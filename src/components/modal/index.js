@@ -21,7 +21,7 @@ const Modal = () => {
         transform: translate(-50%,-50%);
         background: transparent;
       `;
-    }
+    },
   });
 
   return {
@@ -29,7 +29,7 @@ const Modal = () => {
     toggleModal: togglePortal,
     closeModal: closePortal,
     openModal: openPortal,
-    isOpen
+    isOpen,
   };
 };
 

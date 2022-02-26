@@ -15,7 +15,7 @@ import amenitiesEnum, {
   getAmenityKeyByName
 } from '../../utils/enums/amenities';
 
-const Filter = ({ handleSubmit, selected }) => {
+function Filter({ handleSubmit, selected }) {
   const { t } = useTranslation();
   const [price, setPrice] = useState(0);
   const [rating, setRating] = useState(0);
@@ -155,7 +155,7 @@ const Filter = ({ handleSubmit, selected }) => {
       </Collapse>
     </StyledCollapse>
   );
-};
+}
 
 Filter.propTypes = {
   handleSubmit: PropTypes.func,

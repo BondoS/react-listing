@@ -9,8 +9,6 @@ const checkStatus = response => {
   return Promise.reject(error);
 };
 
-export default async (url, data) => {
-  return fetch(url, data)
+export default async (url, data) => fetch(url, data)
     .then(checkStatus)
     .then(r => r.json());
-};

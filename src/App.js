@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HotelAdmin from './pages/admin/hotel';
 import Room from './pages/admin/room';
 import Admin from './pages/admin/main';
@@ -11,24 +11,25 @@ import Confirm from './pages/public/confirm';
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/hotel/" component={Hotel} />
-          <Route path="/admin/hotel/" component={HotelAdmin} />
-          <Route path="/admin/room/" component={Room} />
-          <Route path="/admin/" component={Admin} />
-          <Route path="/confirm/" component={Confirm} />
+      <div className='App'>
+        <Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route path='/hotel/' element={<Hotel />} />
+          <Route path='/admin/hotel/' element={<HotelAdmin />} />
+          <Route path='/admin/room/' element={<Room />} />
+          <Route path='/admin/' element={<Admin />} />
+          <Route path='/confirm/' element={<Confirm />} />
           <Route
             render={() => (
-              <h2 style={{ textAlign: 'center' }} className="notFound">
+              <h2 style={{ textAlign: 'center' }} className='notFound'>
                 404 Page Not Found
               </h2>
             )}
           />
-        </Switch>
+        </Routes>
       </div>
     </Router>
+    // <div>shit</div>
   );
 }
 

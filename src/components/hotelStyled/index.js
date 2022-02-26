@@ -15,7 +15,7 @@ import Rooms from '../rooms';
 import Styled from './style';
 import BasicRooms from './basicRooms';
 
-const Hotel = ({ hotel, rooms, theme, t, lng }) => {
+function Hotel({ hotel, rooms, theme, t, lng }) {
   return (
     <Styled key={hotel.id} className={theme}>
       <div className="mainContent">
@@ -70,7 +70,7 @@ const Hotel = ({ hotel, rooms, theme, t, lng }) => {
       </div>
     </Styled>
   );
-};
+}
 
 Hotel.propTypes = {
   hotel: hotelPropTypes,
