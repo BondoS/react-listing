@@ -6,7 +6,7 @@ import FieldContain from '../ui/fieldContain';
 import Label from '../ui/label';
 import sortEnum from '../../utils/sort';
 
-const Sort = ({ change, currentSort }) => {
+function Sort({ change, currentSort }) {
   const { t } = useTranslation();
   const [sort, setSort] = useState(Object.keys(sortEnum)[0]);
   const setSortEnhanced = newSort => {
@@ -35,7 +35,7 @@ const Sort = ({ change, currentSort }) => {
       </Select>
     </FieldContain>
   );
-};
+}
 
 Sort.propTypes = {
   change: PropTypes.func,

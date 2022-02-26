@@ -1,6 +1,3 @@
-// to fix some chrome issue, will look into them later
-/* eslint-disable jsx-a11y/no-onchange */
-/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -13,91 +10,91 @@ import Label from '../../../components/ui/label';
 import Button from '../../../components/ui/button';
 import {
   initialHotel,
-  hotelPropTypes
+  hotelPropTypes,
 } from '../../../store/reducers/properties/types';
 import Select from '../../../components/ui/select';
 import Checkbox from '../../../components/ui/checkbox';
 
-const EditForm = ({ hotel, handleSubmit, id, change }) => {
+function EditForm({ hotel, handleSubmit, id, change }) {
   const { t } = useTranslation();
   // #TODO split each field to separate component
   return (
     <form onSubmit={handleSubmit}>
       <FieldContain>
-        <Label htmlFor="hotelId">{t('hotelId')}</Label>
-        <Input id="hotelId" value={id} disabled name="id" />
+        <Label htmlFor='hotelId'>{t('hotelId')}</Label>
+        <Input id='hotelId' value={id} disabled name='id' />
       </FieldContain>
       <FieldContain>
-        <Label htmlFor="hotelNameEn">{t('hotelNameEn')}</Label>
+        <Label htmlFor='hotelNameEn'>{t('hotelNameEn')}</Label>
         <Input
-          id="hotelNameEn"
+          id='hotelNameEn'
           value={hotel.name.en}
           onChange={change}
-          name="name-en"
+          name='name-en'
         />
       </FieldContain>
       <FieldContain>
-        <Label htmlFor="hotelNameDe">{t('hotelNameDe')}</Label>
+        <Label htmlFor='hotelNameDe'>{t('hotelNameDe')}</Label>
         <Input
-          id="hotelNameDe"
+          id='hotelNameDe'
           value={hotel.name.de}
           onChange={change}
-          name="name-de"
+          name='name-de'
         />
       </FieldContain>
       <FieldContain>
-        <Label htmlFor="hotelDescEn">{t('hotelDescEn')}</Label>
+        <Label htmlFor='hotelDescEn'>{t('hotelDescEn')}</Label>
         <Textarea
-          id="hotelDescEn"
+          id='hotelDescEn'
           value={hotel.description.en}
           onChange={change}
-          name="description-en"
+          name='description-en'
         />
       </FieldContain>
       <FieldContain>
-        <Label htmlFor="hotelDescDe">{t('hotelDescDe')}</Label>
+        <Label htmlFor='hotelDescDe'>{t('hotelDescDe')}</Label>
         <Textarea
-          id="hotelDescDe"
+          id='hotelDescDe'
           value={hotel.description.de}
           onChange={change}
-          name="description-de"
+          name='description-de'
         />
       </FieldContain>
       <FieldContain>
-        <Label htmlFor="distance">{t('distance')}</Label>
+        <Label htmlFor='distance'>{t('distance')}</Label>
         <Input
-          type="text"
-          id="distance"
+          type='text'
+          id='distance'
           value={hotel.distance_to_venue}
           onChange={change}
-          name="distance_to_venue"
+          name='distance_to_venue'
         />
       </FieldContain>
       <FieldContain>
-        <Label htmlFor="rating">
+        <Label htmlFor='rating'>
           {t('rating')}
           {` `}
           <sub>{t('ratingTip')}</sub>
         </Label>
         {/* #TODO validate */}
         <Input
-          id="rating"
+          id='rating'
           value={hotel.rating}
           onChange={change}
-          name="rating"
+          name='rating'
         />
       </FieldContain>
       <FieldContain>
-        <Label htmlFor="priceCategory">{t('priceCategory')}</Label>
+        <Label htmlFor='priceCategory'>{t('priceCategory')}</Label>
         <Select
-          id="priceCategory"
+          id='priceCategory'
           onChange={change}
           // Chrome bug here
           // onBlur={change}
-          name="price_category"
+          name='price_category'
           value={hotel.price_category}
         >
-          {Object.keys(priceEnum).map(key => (
+          {Object.keys(priceEnum).map((key) => (
             <option key={`price-${key}`} value={key}>
               {priceEnum[key]}
             </option>
@@ -105,7 +102,7 @@ const EditForm = ({ hotel, handleSubmit, id, change }) => {
         </Select>
       </FieldContain>
       <FieldContain>
-        <Label htmlFor="amenities">{t('amenities')}</Label>
+        <Label htmlFor='amenities'>{t('amenities')}</Label>
         {/** #TODO enhance UI */}
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
           {Object.keys(amenitiesEnum).map((amenity, i) => (
@@ -115,7 +112,7 @@ const EditForm = ({ hotel, handleSubmit, id, change }) => {
               </label>
               <input
                 id={`amenity${i}`}
-                type="checkbox"
+                type='checkbox'
                 value={amenity}
                 checked={hotel.amenities.includes(+amenity)}
                 onChange={change}
@@ -138,25 +135,25 @@ const EditForm = ({ hotel, handleSubmit, id, change }) => {
           />
         </FieldContain>
       ))}
-      <Button btnStyle="submit" type="submit">
+      <Button btnStyle='submit' type='submit'>
         {t('save')}
       </Button>
     </form>
   );
-};
+}
 
 EditForm.propTypes = {
   hotel: hotelPropTypes,
   handleSubmit: PropTypes.func,
   id: PropTypes.string,
-  change: PropTypes.func
+  change: PropTypes.func,
 };
 
 EditForm.defaultProps = {
   hotel: initialHotel,
   handleSubmit: () => {},
   id: '',
-  change: () => {}
+  change: () => {},
 };
 
 export default EditForm;

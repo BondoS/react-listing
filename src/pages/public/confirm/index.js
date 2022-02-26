@@ -6,7 +6,7 @@ import Main from '../../../components/main';
 import useQuery from '../../../hooks/useQuery';
 import StyledConfirm from '../../../components/confirm/styled';
 
-const ConfirmPg = () => {
+function ConfirmPg() {
   const query = useQuery();
   const id = query.get('id');
   const reservation = ls.get('reservation');
@@ -69,7 +69,7 @@ const ConfirmPg = () => {
       <Main>{renderResult}</Main>
     </div>
   );
-};
+}
 
 ConfirmPg.propTypes = {};
 

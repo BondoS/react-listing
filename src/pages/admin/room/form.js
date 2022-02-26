@@ -1,6 +1,3 @@
-// to fix some chrome issue, will look into them later
-/* eslint-disable jsx-a11y/no-onchange */
-/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
@@ -13,33 +10,33 @@ import {
   initialRoom,
   initialHotel,
   hotelPropTypes,
-  roomPropTypes
+  roomPropTypes,
 } from '../../../store/reducers/properties/types';
 import Select from '../../../components/ui/select';
 
-const EditForm = ({ room, handleSubmit, id, change, hotels, lng }) => {
+function EditForm({ room, handleSubmit, id, change, hotels, lng }) {
   const { t } = useTranslation();
   // #TODO split each field to separate component
   return (
     <form onSubmit={handleSubmit}>
       <FieldContain>
-        <Label htmlFor="roomId">{t('roomId')}</Label>
-        <Input id="roomId" value={id} disabled name="id" />
+        <Label htmlFor='roomId'>{t('roomId')}</Label>
+        <Input id='roomId' value={id} disabled name='id' />
       </FieldContain>
       <FieldContain>
-        <Label htmlFor="hotelId">{t('hotel')}</Label>
+        <Label htmlFor='hotelId'>{t('hotel')}</Label>
         <Select
-          type="text"
-          id="hotelId"
-          name="hotelId"
+          type='text'
+          id='hotelId'
+          name='hotelId'
           onChange={change}
           value={room.hotelId}
-          defaultValue="select"
+          defaultValue='select'
         >
-          <option key="please-select" value="select">
+          <option key='please-select' value='select'>
             Please select
           </option>
-          {Object.keys(hotels.list).map(key => (
+          {Object.keys(hotels.list).map((key) => (
             <option key={key} value={key}>
               {hotels.list[key].name[lng]}
             </option>
@@ -47,49 +44,49 @@ const EditForm = ({ room, handleSubmit, id, change, hotels, lng }) => {
         </Select>
       </FieldContain>
       <FieldContain>
-        <Label htmlFor="roomNameEn">{t('roomNameEn')}</Label>
+        <Label htmlFor='roomNameEn'>{t('roomNameEn')}</Label>
         <Input
-          id="roomNameEn"
+          id='roomNameEn'
           value={room.name.en}
           onChange={change}
-          name="name-en"
+          name='name-en'
         />
       </FieldContain>
       <FieldContain>
-        <Label htmlFor="roomNameDe">{t('roomNameDe')}</Label>
+        <Label htmlFor='roomNameDe'>{t('roomNameDe')}</Label>
         <Input
-          id="roomNameDe"
+          id='roomNameDe'
           value={room.name.de}
           onChange={change}
-          name="name-de"
+          name='name-de'
         />
       </FieldContain>
       <FieldContain>
-        <Label htmlFor="roomDescEn">{t('roomDescEn')}</Label>
+        <Label htmlFor='roomDescEn'>{t('roomDescEn')}</Label>
         <Textarea
-          id="roomDescEn"
+          id='roomDescEn'
           value={room.description.en}
           onChange={change}
-          name="description-en"
+          name='description-en'
         />
       </FieldContain>
       <FieldContain>
-        <Label htmlFor="roomDescDe">{t('roomDescDe')}</Label>
+        <Label htmlFor='roomDescDe'>{t('roomDescDe')}</Label>
         <Textarea
-          id="roomDescDe"
+          id='roomDescDe'
           value={room.description.de}
           onChange={change}
-          name="description-de"
+          name='description-de'
         />
       </FieldContain>
       <FieldContain>
-        <Label htmlFor="max_occupancy">{t('max_occupancy')}</Label>
+        <Label htmlFor='max_occupancy'>{t('max_occupancy')}</Label>
         <Select
-          type="text"
-          id="max_occupancy"
+          type='text'
+          id='max_occupancy'
           value={room.max_occupancy}
           onChange={change}
-          name="max_occupancy"
+          name='max_occupancy'
         >
           {new Array(6).fill(0).map((_, i) => (
             <option key={`max_occupancy-${i + 1}`} value={i + 1}>
@@ -99,21 +96,21 @@ const EditForm = ({ room, handleSubmit, id, change, hotels, lng }) => {
         </Select>
       </FieldContain>
       <FieldContain>
-        <Label htmlFor="price_in_usd">{t('price_in_usd')}</Label>
+        <Label htmlFor='price_in_usd'>{t('price_in_usd')}</Label>
         {/* #TODO validate */}
         <Input
-          id="price_in_usd"
+          id='price_in_usd'
           value={room.price_in_usd}
           onChange={change}
-          name="price_in_usd"
+          name='price_in_usd'
         />
       </FieldContain>
-      <Button btnStyle="submit" type="submit">
+      <Button btnStyle='submit' type='submit'>
         {t('save')}
       </Button>
     </form>
   );
-};
+}
 
 EditForm.propTypes = {
   room: roomPropTypes,
@@ -121,7 +118,7 @@ EditForm.propTypes = {
   id: PropTypes.string,
   change: PropTypes.func,
   hotels: PropTypes.shape({ list: PropTypes.shape({ hotelPropTypes }) }),
-  lng: PropTypes.string
+  lng: PropTypes.string,
 };
 
 EditForm.defaultProps = {
@@ -130,7 +127,7 @@ EditForm.defaultProps = {
   id: '',
   change: () => {},
   hotels: { list: [initialHotel] },
-  lng: 'en'
+  lng: 'en',
 };
 
 export default EditForm;

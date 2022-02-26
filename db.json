@@ -13,13 +13,7 @@
       "distance_to_venue": 800,
       "rating": 4.6,
       "price_category": 3,
-      "amenities": [
-        3,
-        4,
-        5,
-        6,
-        7
-      ],
+      "amenities": [3, 4, 5, 6, 7],
       "images": [
         "pexels-photo-164595.jpeg",
         "pexels-photo-338504.jpeg",
@@ -39,15 +33,7 @@
       "distance_to_venue": 500,
       "rating": 4.6,
       "price_category": 3,
-      "amenities": [
-        1,
-        3,
-        5,
-        7,
-        2,
-        4,
-        6
-      ],
+      "amenities": [1, 3, 5, 7, 2, 4, 6],
       "images": [
         "pexels-photo-2467285.jpeg",
         "pexels-photo-3201758.jpeg",
@@ -67,11 +53,7 @@
       "distance_to_venue": 1000,
       "rating": 3,
       "price_category": 3,
-      "amenities": [
-        3,
-        4,
-        6
-      ],
+      "amenities": [3, 4, 6],
       "images": [
         "pexels-photo-338504.jpeg",
         "pexels-photo-460537.jpeg",
@@ -91,10 +73,7 @@
       "distance_to_venue": 300,
       "rating": 2.5,
       "price_category": 3,
-      "amenities": [
-        1,
-        3
-      ],
+      "amenities": [1, 3],
       "images": [
         "pexels-photo-3201758.jpeg",
         "pexels-photo-164595.jpeg",
@@ -114,13 +93,7 @@
       "distance_to_venue": 1300,
       "rating": 5,
       "price_category": 2,
-      "amenities": [
-        1,
-        2,
-        3,
-        4,
-        6
-      ],
+      "amenities": [1, 2, 3, 4, 6],
       "images": [
         "pexels-photo-460537.jpeg",
         "pexels-photo-2467285.jpeg",
@@ -140,10 +113,7 @@
       "distance_to_venue": 3600,
       "rating": 2.9,
       "price_category": 2,
-      "amenities": [
-        1,
-        7
-      ],
+      "amenities": [1, 7],
       "images": [
         "pexels-photo-164595.jpeg",
         "pexels-photo-338504.jpeg",
@@ -164,10 +134,7 @@
       "distance_to_venue": 1500,
       "rating": 2.7,
       "price_category": 2,
-      "amenities": [
-        1,
-        2
-      ],
+      "amenities": [1, 2],
       "images": [
         "pexels-photo-164595.jpeg",
         "pexels-photo-338504.jpeg",

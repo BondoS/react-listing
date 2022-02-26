@@ -18,14 +18,12 @@ export const getAllProperties = type => {
   return Promise.resolve(rooms);
 };
 
-export const getPropertyById = (type, id) => {
-  return call(`${apiUrl}/${type}/${id}`, {
+export const getPropertyById = (type, id) => call(`${apiUrl}/${type}/${id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
     }
   });
-};
 
 export const setProperty = (type, action, id, payload) => {
   let url;
@@ -46,11 +44,9 @@ export const setProperty = (type, action, id, payload) => {
   });
 };
 
-export const deleteProperty = (type, id) => {
-  return call(`${apiUrl}/${type}/${id}`, {
+export const deleteProperty = (type, id) => call(`${apiUrl}/${type}/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'
     }
   });
-};

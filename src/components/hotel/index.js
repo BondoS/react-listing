@@ -8,11 +8,11 @@ import {
 } from '../../store/reducers/properties/types';
 import HotelStyled from '../hotelStyled';
 
-const Hotel = ({ hotel, rooms, t, lng }) => {
+function Hotel({ hotel, rooms, t, lng }) {
   return (
     <HotelStyled hotel={hotel} rooms={rooms} t={t} lng={lng} theme="full" />
   );
-};
+}
 
 Hotel.propTypes = {
   hotel: hotelPropTypes,

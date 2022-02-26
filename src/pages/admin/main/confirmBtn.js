@@ -4,7 +4,7 @@ import useModal from '../../../components/modal';
 import StyledModal from '../../../components/ui/modal';
 import Button from '../../../components/ui/button';
 
-const ConfirmBtn = ({ type, name, t, confirm }) => {
+function ConfirmBtn({ type, name, t, confirm }) {
   const { openModal, closeModal, isOpen, Modal } = useModal();
 
   return (
@@ -40,7 +40,7 @@ const ConfirmBtn = ({ type, name, t, confirm }) => {
       )}
     </>
   );
-};
+}
 
 ConfirmBtn.propTypes = {
   type: PropTypes.string,

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import qs from 'qs';
 import Header from '../../../components/header';
 import Main from '../../../components/main';
@@ -12,39 +12,37 @@ import HotelPaginate from '../../../components/paginate';
 import Hotels from '../../../components/hotels';
 import { stringToNumber } from '../../../utils/normalize';
 
-const HomePg = () => {
+function HomePg() {
   const dispatch = useDispatch();
   const query = useLocation().search.slice(1);
-  const history = useHistory();
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const params = new URLSearchParams(query);
   const { page = 1, filter = {}, sort = 1 } = qs.parse(query);
   const {
     hotels,
     rooms,
-    filter: { result, pageCount, loading }
-  } = useSelector(state => state);
+    filter: { result, pageCount, loading },
+  } = useSelector((state) => state);
 
-  const currentHotels = result.map(id => ({
+  const currentHotels = result.map((id) => ({
     ...hotels.list[id],
     rooms: rooms.ids
-      .filter(roomId => rooms.list[roomId].hotelId === id)
-      .map(roomId => rooms.list[roomId])
+      .filter((roomId) => rooms.list[roomId].hotelId === id)
+      .map((roomId) => rooms.list[roomId]),
   }));
-  const handleFilter = filters => {
-    history.replace(
-      `/?${qs.stringify({ filter: filters })}&page=${1}&sort=${sort}`
-    );
+  const handleFilter = (filters) => {
+    navigate(`/?${qs.stringify({ filter: filters })}&page=${1}&sort=${sort}`);
   };
 
-  const handleSort = sortBy => {
+  const handleSort = (sortBy) => {
     params.set('sort', sortBy);
-    history.replace(`/?${params.toString()}`);
+    navigate(`/?${params.toString()}`);
   };
 
-  const handlePagination = nextPage => {
+  const handlePagination = (nextPage) => {
     params.set('page', nextPage);
-    history.replace(`/?${params.toString()}`);
+    navigate(`/?${params.toString()}`);
   };
 
   useEffect(() => {
@@ -85,6 +83,6 @@ const HomePg = () => {
       </Main>
     </div>
   );
-};
+}
 
 export default HomePg;

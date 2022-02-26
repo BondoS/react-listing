@@ -8,7 +8,7 @@ import Hotel from '../../../components/hotel';
 import Header from '../../../components/header';
 import Main from '../../../components/main';
 
-const HotelPg = () => {
+function HotelPg() {
   const query = useQuery();
   const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
@@ -59,6 +59,6 @@ const HotelPg = () => {
       <Main>{renderResult} </Main>
     </div>
   );
-};
+}
 
 export default HotelPg;

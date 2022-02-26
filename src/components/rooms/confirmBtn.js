@@ -10,7 +10,7 @@ import {
   hotelPropTypes
 } from '../../store/reducers/properties/types';
 
-const ConfirmBtn = ({ hotel, room, lng, t, confirm }) => {
+function ConfirmBtn({ hotel, room, lng, t, confirm }) {
   const { openModal, closeModal, isOpen, Modal } = useModal();
 
   return (
@@ -53,7 +53,7 @@ const ConfirmBtn = ({ hotel, room, lng, t, confirm }) => {
       )}
     </>
   );
-};
+}
 
 ConfirmBtn.propTypes = {
   hotel: hotelPropTypes,

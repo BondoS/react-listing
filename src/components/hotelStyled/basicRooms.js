@@ -9,7 +9,7 @@ import {
   roomPropTypes
 } from '../../store/reducers/properties/types';
 
-const BasicRooms = ({ hotel, rooms, t, lng }) => {
+function BasicRooms({ hotel, rooms, t, lng }) {
   const [accordion, setAccordion] = useState({
     isOpened: false,
     height: 0
@@ -52,7 +52,7 @@ const BasicRooms = ({ hotel, rooms, t, lng }) => {
   ) : (
     <div className="noRooms">{t('noAvailableRooms')}</div>
   );
-};
+}
 
 BasicRooms.propTypes = {
   hotel: hotelPropTypes,

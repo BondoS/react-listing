@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Paginate from 'react-paginate';
 import StyledPaginate from './styledPaginate';
 
-const HotelPaginate = ({ currentPage, pageCount, onPageChange }) => {
+function HotelPaginate({ currentPage, pageCount, onPageChange }) {
   const handleChange = selectedItem => {
     onPageChange(selectedItem.selected + 1);
   };
@@ -21,7 +21,7 @@ const HotelPaginate = ({ currentPage, pageCount, onPageChange }) => {
       />
     </StyledPaginate>
   );
-};
+}
 
 HotelPaginate.propTypes = {
   currentPage: PropTypes.number,
