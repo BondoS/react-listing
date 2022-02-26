@@ -1,4 +1,4 @@
-This project is a demonestration for an E-commerce platform. it is built with React-Redux, and it uses a local JSON-Server which exposes an endpoint to import the data.
+This project is a demonstration for an E-commerce platform. it is built with React-Redux, and it uses a local JSON-Server which exposes an endpoint to import the data.
 
 
 
