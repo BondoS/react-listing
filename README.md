@@ -1,4 +1,6 @@
-This project is a demonstration of an E-commerce platform, represented by a Hotel rooms bookings portal. it is built with React-Redux, and it uses a local JSON-Server which exposes some endpoints to import the data.
+This project is a demonstration of an E-commerce platform, represented by a Hotel rooms bookings portal. it is built with React-Redux, and it uses a local JSON-Server which exposes some endpoints to import the data.<br />
+
+You can view this project hosted on [https://react-listing.vercel.app/](https://react-listing.vercel.app/)
 
 #### How to run the project
 
