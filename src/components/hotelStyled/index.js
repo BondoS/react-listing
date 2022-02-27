@@ -7,7 +7,7 @@ import {
   initialHotel,
   hotelPropTypes,
   initialRoom,
-  roomPropTypes
+  roomPropTypes,
 } from '../../store/reducers/properties/types';
 import amenities from '../../utils/enums/amenities';
 import prices from '../../utils/enums/price';
@@ -17,42 +17,52 @@ import BasicRooms from './basicRooms';
 
 function Hotel({ hotel, rooms, theme, t, lng }) {
   return (
-    <Styled key={hotel.id} className={theme}>
-      <div className="mainContent">
-        <div className="txt">
-          <div className="name">
+    <Styled key={hotel.id} className={theme} data-testid='hotel'>
+      <div className='mainContent'>
+        <div className='txt'>
+          <div className='name'>
             {theme === 'basic' ? (
               <Link to={`/hotel/?id=${hotel.id}`}>{hotel.name[lng]}</Link>
             ) : (
               hotel.name[lng]
             )}
           </div>
-          <div className="field">
-            <div className="label">{t('rating')}: </div>
-            <div className="value">{hotel.rating}</div>
+          <div className='field'>
+            <div className='label'>{t('rating')}: </div>
+            <div className='value' data-testid='hotel-rating'>
+              {hotel.rating}
+            </div>
           </div>
-          <div className="field">
-            <div className="label">{t('priceCategory')}: </div>
-            <div className="value"> {t(prices[hotel.price_category])}</div>
+          <div className='field'>
+            <div className='label'>{t('priceCategory')}: </div>
+            <div className='value' data-testid='hotel-price-category'>
+              {t(prices[hotel.price_category])}
+            </div>
           </div>
-          <div className="field">
-            <div className="label">{t('distance')}: </div>
-            <span className="value">{hotel.distance_to_venue}</span>
+          <div className='field'>
+            <div className='label'>{t('distance')}: </div>
+            <span className='value' data-testid='hotel-distance'>
+              {hotel.distance_to_venue}
+            </span>
           </div>
-          <div className="field">
-            {hotel.amenities.map(amenity => (
-              <span className="amenity" key={`amenity-${amenity}`}>
+          <div className='field'>
+            {hotel.amenities.map((amenity) => (
+              <span
+                className='amenity'
+                key={`amenity-${amenity}`}
+                data-testid='hotel-amenities'
+              >
                 {t(amenities[amenity])}
               </span>
             ))}
           </div>
         </div>
 
-        <div className="images">
-          {hotel.images.map(image => (
+        <div className='images'>
+          {hotel.images.map((image) => (
             <LazyLoadImage
               key={`${hotel.id}-image-${image}`}
-              alt="hotel room"
+              alt='hotel room'
               width={theme === 'full' ? '250px' : '150px'}
               height={theme === 'full' ? '250px' : '150px'}
               style={{ objectFit: 'cover' }}
@@ -61,7 +71,7 @@ function Hotel({ hotel, rooms, theme, t, lng }) {
           ))}
         </div>
       </div>
-      <div className="hotelsRooms">
+      <div className='hotelsRooms'>
         {theme === 'full' ? (
           <Rooms hotel={hotel} rooms={rooms} lng={lng} t={t} />
         ) : (
@@ -77,7 +87,7 @@ Hotel.propTypes = {
   rooms: PropTypes.arrayOf(roomPropTypes),
   theme: PropTypes.string,
   t: PropTypes.func,
-  lng: PropTypes.string
+  lng: PropTypes.string,
 };
 
 Hotel.defaultProps = {
@@ -85,7 +95,7 @@ Hotel.defaultProps = {
   rooms: [initialRoom],
   theme: '',
   t: () => {},
-  lng: 'en'
+  lng: 'en',
 };
 
 export default Hotel;

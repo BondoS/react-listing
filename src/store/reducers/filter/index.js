@@ -2,17 +2,17 @@ import { createSlice } from '@reduxjs/toolkit';
 import { loadAllProperties } from '../properties';
 import getFilteredHotels from './helper';
 
-const initialState = {
+export const initialFilterState = {
   pageCount: 1,
   result: [],
-  loading: false
+  loading: false,
 };
 
 const filterSlice = createSlice({
   name: 'filter',
-  initialState,
+  initialState: initialFilterState,
   reducers: {
-    filterStart: state => {
+    filterStart: (state) => {
       state.loading = true;
     },
     filterSuccess(state, { payload }) {
@@ -23,15 +23,15 @@ const filterSlice = createSlice({
     filterFail: (state, { payload }) => {
       console.log(payload);
       state.loading = false;
-    }
-  }
+    },
+  },
 });
 
 export const { reducers, actions } = filterSlice;
 
 export default filterSlice.reducer;
 
-export const filterHotels = query => async (dispatch, getState) => {
+export const filterHotels = (query) => async (dispatch, getState) => {
   await dispatch(actions.filterStart());
   await dispatch(loadAllProperties()).then(
     async () => {
@@ -41,6 +41,6 @@ export const filterHotels = query => async (dispatch, getState) => {
       );
       await dispatch(actions.filterSuccess({ hotels, pageCount }));
     },
-    err => dispatch(actions.filterFail(err))
+    (err) => dispatch(actions.filterFail(err))
   );
 };

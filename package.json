@@ -36,6 +36,7 @@
     "production": "json-server --static ./build/db db.json",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --env=jsdom --watchAll=false --coverage",
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "dev-server": "json-server -p 8080 db.json"
