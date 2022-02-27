@@ -147,6 +147,7 @@ function Filter({ handleSubmit, selected }) {
                 });
                 handleSubmit({ distance, price, rating, amenities });
               }}
+              data-testid='submit-filter'
             >
               {t('filter')}
             </Button>

@@ -29,19 +29,29 @@ function Hotel({ hotel, rooms, theme, t, lng }) {
           </div>
           <div className='field'>
             <div className='label'>{t('rating')}: </div>
-            <div className='value'>{hotel.rating}</div>
+            <div className='value' data-testid='hotel-rating'>
+              {hotel.rating}
+            </div>
           </div>
           <div className='field'>
             <div className='label'>{t('priceCategory')}: </div>
-            <div className='value'> {t(prices[hotel.price_category])}</div>
+            <div className='value' data-testid='hotel-price-category'>
+              {t(prices[hotel.price_category])}
+            </div>
           </div>
           <div className='field'>
             <div className='label'>{t('distance')}: </div>
-            <span className='value'>{hotel.distance_to_venue}</span>
+            <span className='value' data-testid='hotel-distance'>
+              {hotel.distance_to_venue}
+            </span>
           </div>
           <div className='field'>
             {hotel.amenities.map((amenity) => (
-              <span className='amenity' key={`amenity-${amenity}`}>
+              <span
+                className='amenity'
+                key={`amenity-${amenity}`}
+                data-testid='hotel-amenities'
+              >
                 {t(amenities[amenity])}
               </span>
             ))}
