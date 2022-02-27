@@ -12,7 +12,7 @@ import priceEnum from '../../utils/enums/price';
 import ratingEnum from '../../utils/enums/rating';
 import distanceEnum from '../../utils/enums/distance';
 import amenitiesEnum, {
-  getAmenityKeyByName
+  getAmenityKeyByName,
 } from '../../utils/enums/amenities';
 
 function Filter({ handleSubmit, selected }) {
@@ -24,13 +24,13 @@ function Filter({ handleSubmit, selected }) {
   const isDesktop = window.innerWidth > 768;
   const [accordion, setAccordion] = useState({
     isOpened: isDesktop,
-    height: isDesktop ? 'auto' : 0
+    height: isDesktop ? 'auto' : 0,
   });
 
-  const amenityChange = currAmenity => {
+  const amenityChange = (currAmenity) => {
     setAmenities(
       amenities.includes(currAmenity)
-        ? amenities.filter(amenity => amenity !== currAmenity)
+        ? amenities.filter((amenity) => amenity !== currAmenity)
         : [...amenities, currAmenity]
     );
   };
@@ -45,16 +45,16 @@ function Filter({ handleSubmit, selected }) {
   return (
     <StyledCollapse className={`${accordion.isOpened ? 'open' : 'closed'}`}>
       <button
-        className="collapseHeader"
-        type="button"
+        className='collapseHeader'
+        type='button'
         onClick={() => {
           setAccordion({
             isOpened: !accordion.isOpened,
-            height: accordion.isOpened ? 0 : 'auto'
+            height: accordion.isOpened ? 0 : 'auto',
           });
         }}
       >
-        <h3>{t('filter')}</h3>
+        <h3 data-testid='filter-header'>{t('filter')}</h3>
       </button>
       <Collapse
         isOpened={accordion.isOpened}
@@ -62,17 +62,17 @@ function Filter({ handleSubmit, selected }) {
       >
         <form>
           <FieldContain>
-            <Label htmlFor="distance">{t('distance')}</Label>
+            <Label htmlFor='distance'>{t('distance')}</Label>
             <Select
-              id="distance"
-              name="distance"
-              onChange={e => setDistance(e.target.value)}
+              id='distance'
+              name='distance'
+              onChange={(e) => setDistance(e.target.value)}
               value={distance}
             >
-              <option key="all" value={0}>
+              <option key='all' value={0}>
                 {t('all')}
               </option>
-              {Object.keys(distanceEnum).map(key => (
+              {Object.keys(distanceEnum).map((key) => (
                 <option key={`distance-${key}`} value={+key}>
                   {t(distanceEnum[key].text)}
                 </option>
@@ -80,17 +80,17 @@ function Filter({ handleSubmit, selected }) {
             </Select>
           </FieldContain>
           <FieldContain>
-            <Label htmlFor="priceCategory">{t('priceCategory')}</Label>
+            <Label htmlFor='price_category'>{t('priceCategory')}</Label>
             <Select
-              id="price_category"
-              name="price_category"
-              onChange={e => setPrice(e.target.value)}
+              id='price_category'
+              name='price_category'
+              onChange={(e) => setPrice(e.target.value)}
               value={price}
             >
-              <option key="all" value={0}>
+              <option key='all' value={0}>
                 {t('all')}
               </option>
-              {Object.keys(priceEnum).map(key => (
+              {Object.keys(priceEnum).map((key) => (
                 <option key={`price-${key}`} value={key}>
                   {t(priceEnum[key])}
                 </option>
@@ -98,17 +98,17 @@ function Filter({ handleSubmit, selected }) {
             </Select>
           </FieldContain>
           <FieldContain>
-            <Label htmlFor="rating">{t('rating')}</Label>
+            <Label htmlFor='rating'>{t('rating')}</Label>
             <Select
-              id="rating"
-              name="rating"
-              onChange={e => setRating(e.target.value)}
+              id='rating'
+              name='rating'
+              onChange={(e) => setRating(e.target.value)}
               value={rating}
             >
-              <option key="all" value={0}>
+              <option key='all' value={0}>
                 {t('all')}
               </option>
-              {Object.keys(ratingEnum).map(key => (
+              {Object.keys(ratingEnum).map((key) => (
                 <option key={`rating-${key}`} value={key}>
                   {t(ratingEnum[key].text)}
                 </option>
@@ -116,20 +116,20 @@ function Filter({ handleSubmit, selected }) {
             </Select>
           </FieldContain>
           <FieldContain>
-            <Label htmlFor="amenities">{t('amenities')}</Label>
+            <Label htmlFor='amenities'>{t('amenities')}</Label>
             {/** #TODO enhance UI */}
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-              {Object.keys(amenitiesEnum).map(amenity => (
+              {Object.keys(amenitiesEnum).map((amenity) => (
                 <Checkbox key={`amenity-${amenity}`}>
                   <label htmlFor={amenitiesEnum[amenity]}>
                     {t(amenitiesEnum[amenity])}
                   </label>
                   <input
                     id={amenitiesEnum[amenity]}
-                    type="checkbox"
+                    type='checkbox'
                     value={getAmenityKeyByName(amenity)}
                     checked={amenities.includes(amenity)}
-                    onChange={e => amenityChange(e.target.value)}
+                    onChange={(e) => amenityChange(e.target.value)}
                     name={`amenity-${amenity}`}
                   />
                 </Checkbox>
@@ -138,12 +138,12 @@ function Filter({ handleSubmit, selected }) {
           </FieldContain>
           <div style={{ display: 'flex', justifyContent: 'end' }}>
             <Button
-              btnStyle="basic"
-              type="button"
+              btnStyle='basic'
+              type='button'
               onClick={() => {
                 setAccordion({
                   isOpened: false,
-                  height: 0
+                  height: 0,
                 });
                 handleSubmit({ distance, price, rating, amenities });
               }}
@@ -163,8 +163,8 @@ Filter.propTypes = {
     distance: PropTypes.number,
     price: PropTypes.number,
     rating: PropTypes.number,
-    amenities: PropTypes.array
-  })
+    amenities: PropTypes.array,
+  }),
 };
 
 Filter.defaultProps = {
@@ -173,8 +173,8 @@ Filter.defaultProps = {
     distance: 0,
     price: 0,
     rating: 0,
-    amenities: []
-  }
+    amenities: [],
+  },
 };
 
 export default Filter;
