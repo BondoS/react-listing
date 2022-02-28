@@ -60,7 +60,7 @@ function Filter({ handleSubmit, selected }) {
         isOpened={accordion.isOpened}
         initialStyle={{ transition: 'height 500ms', height: accordion.height }}
       >
-        <form>
+        <form data-testid='filter-form'>
           <FieldContain>
             <Label htmlFor='distance'>{t('distance')}</Label>
             <Select

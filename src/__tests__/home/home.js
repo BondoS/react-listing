@@ -1,7 +1,9 @@
 import React from 'react';
+import user from '@testing-library/user-event';
 import { screen, waitFor, fireEvent, within } from '@testing-library/react';
 import { render } from '../../../test-utils';
 import HomePg from '../../pages/public/home';
+import { axe } from 'jest-axe';
 
 beforeEach(() => render(<HomePg />));
 
@@ -24,6 +26,12 @@ test('Renders filters', async () => {
       name: 'free_wifi',
     })
   ).toBeInTheDocument();
+});
+
+test('Accessible filter form', async () => {
+  const form = screen.getByTestId('filter-form');
+  const results = await axe(form);
+  expect(results).toHaveNoViolations();
 });
 
 test('Renders sort with more than 1 option', async () => {
@@ -54,13 +62,7 @@ test('Filter hotels by distance from venue less than 500', async () => {
 
   // Click on submit filter button
   const submitFilterButton = screen.getByTestId('submit-filter');
-  fireEvent(
-    submitFilterButton,
-    new MouseEvent('click', {
-      bubbles: true,
-      cancelable: true,
-    })
-  );
+  user.click(submitFilterButton);
 
   // Wait for the hotels to load after filtering
   await waitFor(async () => {
